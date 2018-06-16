@@ -23,10 +23,6 @@ class User(db.Model):
 # Set "homepage" to index.html
 @app.route('/')
 def index():
-    urls = [
-        'http://x213x.com'
-    ]
-
     return render_template('index.html', urls=urls)
 
 # Save e-mail to database and send to Success page
