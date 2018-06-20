@@ -19,15 +19,23 @@ pipeline {
         }
         stage ('Commit to internal Private SCM') {
             steps {
-                sh 'git add .'
-                sh 'git commit -m "Successfully tested via Jenkins"'
-                sh 'git remote add origin https://infamousjoeg:5c32f1507f5355ae48cc420c9dda2175c7090710@github.com/hacker213/demo-poc.git'
-                sh 'git push origin master'
+                script {
+                    if ($(git ls-remote origin)) {
+                        sh 'git remote add origin https://infamousjoeg:5c32f1507f5355ae48cc420c9dda2175c7090710@github.com/hacker213/demo-poc.git'
+                    }
+                    sh 'git add .'
+                    sh 'git commit -m "Successfully tested via Jenkins"'
+                    sh 'git push origin master'
+                }
             }
         }
         stage ('Deploy to Heroku Cloud') {
             steps {
-                sh 'git remote add origin http://git:295a5656-7c87-234d-bf8d-678e401804a0@heroku.com/x213x-prereg-demo.git'
+                    scripts {
+                        if ($(git ls-remote heroku)) {
+                            sh 'git remote add heroku https://infamousjoeg:5c32f1507f5355ae48cc420c9dda2175c7090710@github.com/hacker213/demo-poc.git'
+                        }
+                    }
                 sh 'git push origin master'
             }
         }
