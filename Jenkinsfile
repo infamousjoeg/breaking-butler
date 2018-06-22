@@ -19,24 +19,16 @@ pipeline {
         }
         stage ('Commit to Private GitHub for Organization') {
             steps {
-                script {
-                    if ($(git ls-remote private)) {
-                        sh 'git remote add private https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/hacker213/demo-poc.git'
-                    }
+                    sh 'git remote add private https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/hacker213/demo-poc.git'
                     sh 'git add .'
                     sh 'git commit -m "Successfully tested via Jenkins"'
                     sh 'git push private master'
-                }
             }
         }
         stage ('Deploy to Heroku Cloud') {
             steps {
-                    scripts {
-                        if ($(git ls-remote heroku)) {
-                            sh 'git remote add heroku https://git:f95126dc-897c-463a-a4f5-da31819f6257@github.com/hacker213/demo-poc.git'
-                        }
-                    }
-                sh 'git push origin master'
+                    sh 'git remote add heroku https://git:f95126dc-897c-463a-a4f5-da31819f6257@github.com/hacker213/demo-poc.git'
+                    sh 'git push origin master'
             }
         }
     }
