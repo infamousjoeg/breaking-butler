@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     if ($(git ls-remote private)) {
-                        sh 'git remote add private https://infamousjoeg:5c32f1507f5355ae48cc420c9dda2175c7090710@github.com/hacker213/demo-poc.git'
+                        sh 'git remote add private https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/hacker213/demo-poc.git'
                     }
                     sh 'git add .'
                     sh 'git commit -m "Successfully tested via Jenkins"'
