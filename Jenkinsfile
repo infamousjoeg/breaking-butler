@@ -20,7 +20,7 @@ pipeline {
       	stage ('Commit to Local Workspace') {
           	steps {
             	sh 'git add .'
-                sh 'git commit -m "Successfully tested via Jenkins" --no-verify'
+                sh 'git commit -am "Successfully tested via Jenkins"'
             }
         }
         stage ('Commit to Private GitHub for Organization') {
