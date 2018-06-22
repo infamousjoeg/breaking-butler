@@ -19,6 +19,7 @@ pipeline {
         }
         stage ('Commit to Private GitHub for Organization') {
             steps {
+              		sh 'git fetch --no-tags'
                     sh 'git remote add private https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/hacker213/demo-poc.git'
                     sh 'git add .'
                     sh 'git commit -m "Successfully tested via Jenkins"'
@@ -27,6 +28,7 @@ pipeline {
         }
         stage ('Deploy to Heroku Cloud') {
             steps {
+                    sh 'git fetch --no-tags'
                     sh 'git remote add heroku https://git:f95126dc-897c-463a-a4f5-da31819f6257@github.com/hacker213/demo-poc.git'
                     sh 'git push origin master'
             }
