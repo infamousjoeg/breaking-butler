@@ -20,7 +20,7 @@ pipeline {
       	stage ('Commit to Local Workspace') {
           	steps {
             	sh 'git add .'
-                sh 'git commit -am "Successfully tested via Jenkins"'
+                sh 'git diff --quiet && git diff --staged --quiet || git commit -am "Successfully tested via Jenkins"'
             }
         }
         stage ('Commit to Private GitHub for Organization') {
