@@ -9,7 +9,7 @@ pipeline {
         }
         stage ('Checkout from Team Development SCM') {
             steps {
-                sh 'git clone http://eva:Cyberark1@192.168.0.5:7990/scm/~eva/x213x-prereg-webapp.git'
+                sh 'git clone http://eva:Cyberark1@192.168.0.5:7990/scm/~eva/x213x-prereg-webapp.git .'
             }
         }
         stage ('Test Python/Flask/PostgreSQL') {
