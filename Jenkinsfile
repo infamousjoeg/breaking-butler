@@ -14,7 +14,7 @@ pipeline {
         }
         stage ('Test Python/Flask/PostgreSQL') {
             steps {
-                // Things will eventually be done here for testing
+                echo 'Things will eventually be done here for testing.'
             }
         }
         stage ('Commit to Private GitHub for Organization') {
