@@ -17,23 +17,16 @@ pipeline {
                 echo 'Things will eventually be done here for testing.'
             }
         }
-      	stage ('Commit to Local Workspace') {
+      	stage ('Commit to Local Jenkins Build Workspace') {
           	steps {
             	sh 'git add .'
                 sh 'git diff --quiet && git diff --staged --quiet || git commit -am "Successfully tested via Jenkins"'
             }
         }
-        stage ('Commit to Private GitHub for Organization') {
+        stage ('Deploy to Heroku via GitHub Organization') {
             steps {
-            	sh 'git remote add private https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/hacker213/demo-poc.git'
-                sh 'git remote -v'
-            	sh 'git push private master'
-            }
-        }
-        stage ('Deploy to Heroku Cloud') {
-            steps {
-            	sh 'git remote add heroku https://git:f95126dc-897c-463a-a4f5-da31819f6257@github.com/hacker213/demo-poc.git'
-            	sh 'git push origin master'
+            	sh 'git remote add heroku https://infamousjoeg:b8c3b78e7366eccb888ac5557f1153bc8cd28c22@github.com/infamousjoeg/breaking-butler.git'
+            	sh 'git push heroku master'
             }
         }
     }
