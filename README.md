@@ -1,6 +1,7 @@
-# CICD Demo
+# Breaking Butler
 
 ## Purpose
+
 This repo demostrates how to secure CI/CD pipeline using CyberArk Conjur
 
 ## Requirements
@@ -16,11 +17,8 @@ This script will install docker, docker-compose & ansible on the host, and confi
 Then create GitLab, GitLab runner, WeaveScope, Jenkins BlueOcean, Ansible, SonarQube, Artifactory & Conjur as containers
 It also install 2 demos projects: Insecure demo & Secure Demo
 
-### Host names
-xip.io will be used for DNS names for containers.
-
-
 ### Login Details
+
 By default, a text file will be generated, containing all the login url, username & passwords.
 
 ### Demo flow
@@ -28,7 +26,6 @@ By default, a text file will be generated, containing all the login url, usernam
 Simply update the source in Gitlab, and the pipeline will be automatically triggered.
 You can review .gitlab-ci.yml in GitLab, Jenkins project configuration and AWX playbook.
 The insecure demo will have secrets hard-coded, while the secure demo will be secured by CyberArk Conjur
-
 
 ## Individual Componments
 
@@ -48,7 +45,6 @@ A ruby script is used to get the registration token as there is no offical way t
 
 - Code Quality Check
 
-
 ### Artifactory
 
 - Repo for Artifacts
@@ -57,11 +53,10 @@ A ruby script is used to get the registration token as there is no offical way t
 
 - CD automation
 
-
-
 ## Useful Scripts
 
 ### bin/cleanup.sh
+
 This script kills & removes all related containers
 
 
