@@ -104,4 +104,3 @@ blueocean-pipeline-editor
 blueocean-i18n
 blueocean-autofavorite
 blueocean
-
