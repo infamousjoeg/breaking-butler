@@ -1,0 +1,18 @@
+- !policy
+  id: gitlab
+  body:
+  - &gitlab_variables
+    - !variable password
+
+  - !group secrets-users
+
+  - !permit
+    resource: *gitlab_variables
+    privileges: [ read, execute ]
+    roles: !group secrets-users
+
+  - !layer
+
+  - !host-factory
+    layers: [ !layer ]
+

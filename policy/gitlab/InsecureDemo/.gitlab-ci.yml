@@ -1,0 +1,5 @@
+trigger_jenkins:
+  variables:
+    INSECURE_JENKINS_PASS: JENKINS_PASS
+  script:
+    - './callJenkins.sh'

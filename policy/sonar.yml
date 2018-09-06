@@ -1,0 +1,13 @@
+- !policy
+  id: sonar
+  body:
+  - &sonar_variables
+    - !variable password
+
+  - !group secrets-users
+
+  - !permit
+    resource: *sonar_variables
+    privileges: [ read, execute ]
+    roles: !group secrets-users
+

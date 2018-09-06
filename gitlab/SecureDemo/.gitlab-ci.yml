@@ -1,0 +1,3 @@
+trigger_jenkins:
+  script:
+    - 'summon ./callJenkins.sh'

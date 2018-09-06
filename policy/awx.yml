@@ -1,0 +1,18 @@
+- !policy
+  id: awx
+  body:
+  - &awx_variables
+    - !variable password
+
+  - !group secrets-users
+
+  - !permit
+    resource: *awx_variables
+    privileges: [ read, execute ]
+    roles: !group secrets-users
+
+  - !layer
+
+  - !host-factory
+    layers: [ !layer ]
+

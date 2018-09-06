@@ -1,0 +1,18 @@
+- !policy
+  id: jenkins
+  body:
+  - &jenkins_variables
+    - !variable password
+
+  - !group secrets-users
+
+  - !permit
+    resource: *jenkins_variables
+    privileges: [ read, execute ]
+    roles: !group secrets-users
+
+  - !layer
+
+  - !host-factory
+    layers: [ !layer ]
+
