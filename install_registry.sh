@@ -32,6 +32,15 @@ do
 done
 
 echo "#######################"
+echo "# Removing Local Images"
+echo "#######################"
+
+for image in "${images[@]}"
+do
+    docker rmi $image
+done
+
+echo "#######################"
 echo "# Pushing Docker Images"
 echo "#######################"
 
@@ -39,6 +48,8 @@ for image in "${images[@]}"
 do
     docker push localhost:5000/$image
 done
+
+docker rm -f cicd_registry
 
 echo ""
 echo "Successfully completed."
