@@ -11,7 +11,7 @@ install_summon() {
   docker cp ./downloads/jq $2:/usr/local/bin
 
   echo "[$2]"
-  int_ip="$(docker inspect $2 | jq -r '.[0].NetworkSettings.Networks.cicd_default.IPAddress')"
+  int_ip="$(docker inspect $2 | jq -r '.[0].NetworkSettings.Networks.breaking-butler_default.IPAddress')"
   echo "ip: $int_ip"
   hf_token="$(docker exec cicd_client conjur hostfactory tokens create --duration-minutes 1 --cidr $int_ip/32 $3 | jq -r '.[0].token')"
   echo "hf: $hf_token"
@@ -151,7 +151,7 @@ sed -i "s,ARTIFACTORY_USER,${ARTIFACTORY_USER},g" ./workspace/SecureJob.xml
 sed -i "s,ARTIFACTORY_URL,${ARTIFACTORY_URL},g" ./workspace/SecureJob.xml
 
 
-AWX_CONTAINER_IP=$(docker inspect awx_web | jq -r '.[].NetworkSettings.Networks.cicd_default.IPAddress')
+AWX_CONTAINER_IP=$(docker inspect awx_web | jq -r '.[].NetworkSettings.Networks.breaking-butler_default.IPAddress')
 
 
 sed -i "s,AWX_CONTAINER_IP,${AWX_CONTAINER_IP},g" ./workspace/SecureJob.xml
