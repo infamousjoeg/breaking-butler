@@ -102,7 +102,7 @@ sed -i "s,ARTIFACTORY_PASS,${ARTIFACTORY_PASS},g" ./workspace/InsecureJob.xml
 sed -i "s,ARTIFACTORY_URL,${ARTIFACTORY_URL},g" ./workspace/InsecureJob.xml
 
 
-AWX_CONTAINER_IP=$(docker inspect awx_web | jq -r '.[].NetworkSettings.Networks.breaking-butler_default.IPAddress')
+AWX_CONTAINER_IP=$(docker inspect awx_web | jq -r '.[].NetworkSettings.Networks["breaking-butler_default"].IPAddress')
 
 
 sed -i "s,AWX_CONTAINER_IP,${AWX_CONTAINER_IP},g" ./workspace/InsecureJob.xml
