@@ -187,6 +187,8 @@ docker exec cicd_gitlab_runner gitlab-runner register --non-interactive \
 
 docker exec cicd_gitlab_runner gitlab-runner start
 
+git config user.email "mike@cyberarkdemo.com"
+git config user.name "root"
 
 echo "#################################"
 echo "# Save details to result file"
@@ -202,7 +204,7 @@ CONJUR_ACCOUNT=${CONJUR_ACCOUNT}
 GITLAB_URL=${SERVER_IP}:31080
 GITLAB_USER=root
 GITLAB_PASS=${GITLAB_ROOT_PASSWORD} 
-GITLAB_EMAIL=${ADMIN_EMAIL} 
+GITLAB_EMAIL="mike@cyberarkdemo.com"
 GITLAB_CI_SERVER_TOKEN=${CI_SERVER_TOKEN}
 JENKINS_URL=${SERVER_IP}:32080
 JENKINS_USER=admin

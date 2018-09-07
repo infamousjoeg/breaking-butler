@@ -11,7 +11,7 @@ install_summon() {
   docker cp ./downloads/jq $2:/usr/local/bin
 
   echo "[$2]"
-  int_ip="$(docker inspect $2 | jq -r '.[0].NetworkSettings.Networks.breaking-butler_default.IPAddress')"
+  int_ip="$(docker inspect $2 | jq -r '.[0].NetworkSettings.Networks["breaking-butler_default"].IPAddress')"
   echo "ip: $int_ip"
   hf_token="$(docker exec cicd_client conjur hostfactory tokens create --duration-minutes 1 --cidr $int_ip/32 $3 | jq -r '.[0].token')"
   echo "hf: $hf_token"
