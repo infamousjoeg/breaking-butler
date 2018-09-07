@@ -187,9 +187,6 @@ docker exec cicd_gitlab_runner gitlab-runner register --non-interactive \
 
 docker exec cicd_gitlab_runner gitlab-runner start
 
-git config user.email "mike@cyberarkdemo.com"
-git config user.name "root"
-
 echo "#################################"
 echo "# Save details to result file"
 echo "#################################"

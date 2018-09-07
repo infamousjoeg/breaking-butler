@@ -129,9 +129,12 @@ cd workspace/Demo
 
 rm -rf .git
 git init
+git config user.email "mike@cyberarkdemo.com"
+git config user.name "root"
 git add .
 git commit -m "initial commit"
-git push --set-upstream http://${GITLAB_USER}:${GITLAB_PASS}@${GITLAB_URL}/root/SecureDemo.git master
+git remote add origin master http://${GITLAB_USER}:${GITLAB_PASS}@${GITLAB_URL}/root/SecureDemo.git
+git push -u origin master
 
 cd ..
 cd ..
