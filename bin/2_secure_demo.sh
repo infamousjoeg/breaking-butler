@@ -133,7 +133,7 @@ git config user.email "mike@cyberarkdemo.com"
 git config user.name "root"
 git add .
 git commit -m "initial commit"
-git remote add origin master http://${GITLAB_USER}:${GITLAB_PASS}@${GITLAB_URL}/root/SecureDemo.git
+git remote add origin http://${GITLAB_USER}:${GITLAB_PASS}@${GITLAB_URL}/root/SecureDemo.git
 git push -u origin master
 
 cd ..
