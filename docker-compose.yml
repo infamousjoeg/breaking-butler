@@ -64,9 +64,9 @@ services:
     environment:
       GITLAB_ROOT_PASSWORD: "${GITLAB_ROOT_PASSWORD}"
       GITLAB_ROOT_EMAIL: "${GITLAB_ROOT_EMAIL}"
-      GITLAB_EXT_URL: "http://gitlab.${SERVER_IP}.xip.io:31080"
+      GITLAB_EXT_URL: "http://${SERVER_IP}:31080"
       GITLAB_OMNIBUS_CONFIG: |
-          external_url 'http://gitlab.${SERVER_IP}.xip.io:31080'
+          external_url 'http://${SERVER_IP}:31080'
           gitlab_rails['gitlab_shell_ssh_port'] = 2224
 
     ports:
