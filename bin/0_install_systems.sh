@@ -5,7 +5,7 @@
 ####################
 
 
-export SERVER_IP='localhost'
+export SERVER_IP=$(hostname -I | awk '{print $1}')
 export GITLAB_ROOT_PASSWORD=$(openssl rand -hex 12)
 export JENKINS_ADMIN_PASSWORD=$(openssl rand -hex 12)
 export AWX_PASSWORD=$(openssl rand -hex 12)
