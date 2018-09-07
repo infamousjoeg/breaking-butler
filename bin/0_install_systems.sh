@@ -42,9 +42,9 @@ echo "# Create Docker Private Registry"
 echo "#################################"
 
 docker run --name cicd_registry -d --restart always -p 5000:5000 -v /opt/docker/registry:/var/lib/registry registry:2
-sleep 5
+sleep 2
 docker login -u admin -p admin localhost:5000
-sleep 5
+sleep 2
 
 echo "#################################"
 echo "# Pull Images"
@@ -111,9 +111,6 @@ curl -d "script=${theScript}" http://${SERVER_IP}:32080/scriptText
 
 theScript=`cat ./jenkins/security.groovy`
 curl -d "script=${theScript//xPASSx/$JENKINS_ADMIN_PASSWORD}" http://${SERVER_IP}:32080/scriptText
-
-echo "Sleeping for 10 seconds... be right back. :-)"
-sleep 10
 
 docker restart cicd_jenkins
 
