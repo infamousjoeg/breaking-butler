@@ -148,11 +148,11 @@ ansible-playbook -i inventory install.yml
 cd ../../..
 
 
-docker network connect breaking-butler_default rabbitmq
-docker network connect breaking-butler_default postgres
-docker network connect breaking-butler_default memcached
-docker network connect breaking-butler_default awx_web
-docker network connect breaking-butler_default awx_task
+docker network connect breaking-butler-master_default rabbitmq
+docker network connect breaking-butler-master_default postgres
+docker network connect breaking-butler-master_default memcached
+docker network connect breaking-butler-master_default awx_web
+docker network connect breaking-butler-master_default awx_task
 
 echo "#################################"
 echo "# Create Docker Service Account"
